@@ -1,18 +1,46 @@
-using UnityEngine;
+using System;
 
-// This script will hold the weather information recieved.
+// JSON parsing process. Extracting individual values.
 
-public class WeatherData : MonoBehaviour
+[Serializable]
+public class WeatherData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // City name.
+    public string name;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Temperature and humidity information.
+    public MainData main;
+
+    // Weather condition information.
+    public WeatherCondition[] weather;
+
+    // City's time difference from UTC, in seconds.
+    public int timezone;
+
+    // Time when the weather data was calculated.
+    public long dt;
+
+    // Sunrise and sunset information.
+    public SystemData sys;
+}
+
+[Serializable]
+public class MainData
+{
+    public float temp;
+    public int humidity;
+}
+
+[Serializable]
+public class WeatherCondition
+{
+    public string main;
+    public string description;
+}
+
+[Serializable]
+public class SystemData
+{
+    public long sunrise;
+    public long sunset;
 }
