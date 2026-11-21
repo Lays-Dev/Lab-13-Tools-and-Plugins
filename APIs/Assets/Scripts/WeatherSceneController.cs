@@ -25,20 +25,16 @@ public class WeatherSceneController : MonoBehaviour
     public void UpdateWeatherEnvironment(string condition)
     {
         currentCondition = condition.ToLower();
-
-        ApplyEnvironment();
     }
 
     // Called when the city's time of day is calculated.
     public void UpdateTimeOfDay(bool isDaytime)
     {
         isNight = !isDaytime;
-
-        ApplyEnvironment();
     }
 
     // Combines the weather and time of day to update the scene.
-    private void ApplyEnvironment()
+    public void ApplyEnvironment()
     {
         // Nighttime takes priority over daytime weather.
         if (isNight)

@@ -171,6 +171,8 @@ public class WeatherManager : MonoBehaviour
          );
 
          sceneController.UpdateTimeOfDay(isDaytime);
+
+         sceneController.ApplyEnvironment();
       }
       else
       {
